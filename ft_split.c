@@ -24,7 +24,6 @@ static int wordLen(char const *str, char c)
 {
     int i = 0;
 
-    // printf("[%d]\n", *i);
     while(str[i] && str[i] != c)
         i++;
     return (i);
@@ -35,13 +34,15 @@ static char **ft_putword(char const *str, char c, int words, char **dst)
     int i = 0;
     int len = 0;
     int j;
-    
+
     while(i < words)
     {
         while(*str == c)
             str++;
         len = wordLen(str, c);
-        dst[i] = (char *)malloc(len * (char) + 1);
+        dst[i] = (char *)malloc(len * sizeof(char) + 1);
+        if (!dst)
+            return (NULL);
         j = 0;
         while(j < len)
             dst[i][j++] = *str++;
@@ -55,11 +56,7 @@ char    **ft_split(char const *s, char c)
 {
     char **dst;
     int words;
-    int i;
-    int j;
 
-    i = 0;
-    j = 0;
     words = wordsCounter(s, c);
     dst = (char **)malloc(words * sizeof(char *) + 1);
     if(!dst)
