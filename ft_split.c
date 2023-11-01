@@ -1,84 +1,89 @@
 #include "libft.h"
-
-int ft_count_words(char *str)
+// not clear
+static size_t    wordscounter(const char *str, char c)
 {
-  int wordCount;
-  int is_word;
-  int i;
-  int j;
+    int        i;
+    size_t    counter;
+    int        countertrigger;
 
-  is_word = 0;
-  wordCount = 0;
-  i = 0;
-  while (str[i])
-  {
-    if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
-      is_word = 0;
-    else if (!is_word)
+    i = 0;
+    counter = 0;
+    countertrigger = 1;
+    while (str[i] != '\0')
     {
-      wordCount++;
-      is_word = 1;
+        if (str[i] != c && countertrigger == 1)
+        {
+            counter++;
+            countertrigger = 0;
+        }
+        else if (str[i] == c)
+        {
+            countertrigger = 1;
+        }
+        i++;
     }
-    i++;
-  }
-  return (wordCount);
+    return (counter);
 }
 
-int ft_word_len(char *str, char c)
+static int    wordcount(char const *s, char c, int i)
 {
-  int i;
+    int    count;
 
-  i = 0;
-  while (str[i] && str[i] != c)
-    i++;
-  return (i);
-}
-
-char *ft_word(char *str, char c)
-{
-  int i;
-  int len;
-  char *dst;
-
-  len = ft_word_len(str, c);
-  i = 0;
-  dst = (char *)malloc(len + 1);
-  if(!dst)
-    return (0);
-  while(i < len)
-  {
-    dst[i] = str[i];
-    i++;
-  }
-  dst[i] = '\0';
-  return (dst);
-}
-
-char **ft_split(char const *s, char c)
-{
-  int words;
-  char **dst;
-  int i;
-  int j;
-
-  words = ft_count_words(s);
-  dst = (char **)malloc((words + 1) * sizeof(char *));
-  i = 0;
-  j = 0;
-  while (*s)
-  {
-    dst[j] = ft_word(s , c);
-    while (*s != c)
+    count = 0;
+    while (s[i] != c && s[i])
     {
-
-      *s++;
+        count++;
+        i++;
     }
-    *s++;
-    j++;
-  }
+    return (count);
 }
 
-int main()
+static void    insertvalues(char **str, const char *s, char c, int wordscount)
 {
-  printf("%d", ft_split("med,haha,test", ','));
+    int    sindex;
+    int    str1dindex;
+    int    str2dindex;
+
+    sindex = 0;
+    str1dindex = 0;
+    while (str1dindex < wordscount)
+    {
+        str2dindex = 0;
+        while (s[sindex] == c)
+            sindex++;
+        while (s[sindex] != c && s[sindex])
+            str[str1dindex][str2dindex++] = s[sindex++];
+        str[str1dindex][str2dindex] = 0;
+        str1dindex++;
+    }
+    str[str1dindex] = 0;
 }
+
+char    **ft_split(char const *s, char c)
+{
+    int            sindex;
+    char        **str;
+    size_t        strindex;
+    int            charcount;
+
+    sindex = 0;
+    strindex = 0;
+    if (!s)
+        return (0);
+    str = ft_calloc(wordscounter(s, c) + 1, sizeof(char *));
+    if (!str)
+        return (0);
+    while (strindex < wordscounter(s, c))
+    {
+        while (s[sindex] == c)
+            sindex++;
+        charcount = wordcount(s, c, sindex);
+        str[strindex++] = ft_calloc(charcount + 1, 1);
+        if (!str[strindex - 1])
+            return (0);
+        sindex += charcount;
+    }
+    insertvalues(str, s, c, wordscounter(s, c));
+    return (str);
+}
+
