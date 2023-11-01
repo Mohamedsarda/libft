@@ -32,22 +32,45 @@ static int wordLen(char *str, char c, int i)
     return (len);
 }
 
+static char *ft_putword(char *str, char c, int i)
+{
+    int j = 0;
+    int len = 0;
+    char *dst;
+   
+    len = wordLen(str, c, i);
+    dst = (char *)malloc(len * sizeof(char) + 1);
+   
+    while(str[i] != c && j < len)
+    {
+        dst[j] = str[i];
+        j++;
+        i++;
+    }
+    dst[j] = '\0';
+    return (dst);
+}
+
 char    **ft_split(char const *s, char c)
 {
     char **dst;
     int words;
-    int start;
     int i;
     int j;
 
-    start = 0;
     i = 0;
     j = 0;
     words = wordsCounter(s, c);
     dst = (char **)malloc(words * sizeof(char *) + 1);
     if(!dst)
         return (NULL);
-    while(i <= words)
-    {}
+    while(j < words)
+    {
+        while(s[i] == c)
+            i++;
+        dst[j] = ft_putword(s, c , i);
+        j++;
+        // i = wordLen(s, c, i);
+    }
     return (dst);
 }
