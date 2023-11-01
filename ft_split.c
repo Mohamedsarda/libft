@@ -1,6 +1,6 @@
 #include "libft.h"
 
-static int wordsCounter(char *str, char c)
+static int wordsCounter(char const *str, char c)
 {
     int i = 0;
     int words = 0;
@@ -20,34 +20,34 @@ static int wordsCounter(char *str, char c)
     return (words);
 }
 
-static int wordLen(char *str, char c, int i)
+static int wordLen(char const *str, char c)
 {
-    int len = 0;
+    int i = 0;
 
+    // printf("[%d]\n", *i);
     while(str[i] && str[i] != c)
-    {
-        len++;
         i++;
-    }
-    return (len);
+    return (i);
 }
 
-static char *ft_putword(char *str, char c, int i)
+static char **ft_putword(char const *str, char c, int words, char **dst)
 {
-    int j = 0;
+    int i = 0;
     int len = 0;
-    char *dst;
-   
-    len = wordLen(str, c, i);
-    dst = (char *)malloc(len * sizeof(char) + 1);
-   
-    while(str[i] != c && j < len)
+    int j;
+    
+    while(i < words)
     {
-        dst[j] = str[i];
-        j++;
+        while(*str == c)
+            str++;
+        len = wordLen(str, c);
+        dst[i] = (char *)malloc(len * (char) + 1);
+        j = 0;
+        while(j < len)
+            dst[i][j++] = *str++;
+        dst[i][j] = '\0';
         i++;
     }
-    dst[j] = '\0';
     return (dst);
 }
 
@@ -64,13 +64,6 @@ char    **ft_split(char const *s, char c)
     dst = (char **)malloc(words * sizeof(char *) + 1);
     if(!dst)
         return (NULL);
-    while(j < words)
-    {
-        while(s[i] == c)
-            i++;
-        dst[j] = ft_putword(s, c , i);
-        j++;
-        // i = wordLen(s, c, i);
-    }
+    dst = ft_putword(s, c , words, dst);
     return (dst);
 }

@@ -18,8 +18,3 @@ void ft_putnbr_fd(int n, int fd)
     else
         ft_putchar_fd(num += '0', fd);
 }
-
-int main() {
-    ft_putnbr_fd(-2147483647, 1);
-    return 0;
-}
