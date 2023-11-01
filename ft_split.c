@@ -64,7 +64,7 @@ char    **ft_split(char const *s, char c)
     int            sindex;
     char        **str;
     size_t        strindex;
-    int            charcount;
+    int            charcount;//test
 
     sindex = 0;
     strindex = 0;
