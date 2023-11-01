@@ -1,6 +1,6 @@
 #include "libft.h"
 
 int main() {
-    printf("%s", ft_itoa(6598));
+    ft_putnbr_fd(2, 1);
     return 0;
 }
