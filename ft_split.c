@@ -1,89 +1,53 @@
 #include "libft.h"
-// not clear
-static size_t    wordscounter(const char *str, char c)
-{
-    int        i;
-    size_t    counter;
-    int        countertrigger;
 
-    i = 0;
-    counter = 0;
-    countertrigger = 1;
-    while (str[i] != '\0')
+static int wordsCounter(char *str, char c)
+{
+    int i = 0;
+    int words = 0;
+    int is_word = 0;
+
+    while (str[i])
     {
-        if (str[i] != c && countertrigger == 1)
+        if(str[i] == c)
+            is_word = 0;
+        else if(!is_word)
         {
-            counter++;
-            countertrigger = 0;
-        }
-        else if (str[i] == c)
-        {
-            countertrigger = 1;
+            words++;
+            is_word = 1;
         }
         i++;
     }
-    return (counter);
+    return (words);
 }
 
-static int    wordcount(char const *s, char c, int i)
+static int wordLen(char *str, char c, int i)
 {
-    int    count;
+    int len = 0;
 
-    count = 0;
-    while (s[i] != c && s[i])
+    while(str[i] && str[i] != c)
     {
-        count++;
+        len++;
         i++;
     }
-    return (count);
-}
-
-static void    insertvalues(char **str, const char *s, char c, int wordscount)
-{
-    int    sindex;
-    int    str1dindex;
-    int    str2dindex;
-
-    sindex = 0;
-    str1dindex = 0;
-    while (str1dindex < wordscount)
-    {
-        str2dindex = 0;
-        while (s[sindex] == c)
-            sindex++;
-        while (s[sindex] != c && s[sindex])
-            str[str1dindex][str2dindex++] = s[sindex++];
-        str[str1dindex][str2dindex] = 0;
-        str1dindex++;
-    }
-    str[str1dindex] = 0;
+    return (len);
 }
 
 char    **ft_split(char const *s, char c)
 {
-    int            sindex;
-    char        **str;
-    size_t        strindex;
-    int            charcount;//test
+    char **dst;
+    int words;
+    int start;
+    int i;
+    int j;
 
-    sindex = 0;
-    strindex = 0;
-    if (!s)
-        return (0);
-    str = ft_calloc(wordscounter(s, c) + 1, sizeof(char *));
-    if (!str)
-        return (0);
-    while (strindex < wordscounter(s, c))
-    {
-        while (s[sindex] == c)
-            sindex++;
-        charcount = wordcount(s, c, sindex);
-        str[strindex++] = ft_calloc(charcount + 1, 1);
-        if (!str[strindex - 1])
-            return (0);
-        sindex += charcount;
-    }
-    insertvalues(str, s, c, wordscounter(s, c));
-    return (str);
+    start = 0;
+    i = 0;
+    j = 0;
+    words = wordsCounter(s, c);
+    dst = (char **)malloc(words * sizeof(char *) + 1);
+    if(!dst)
+        return (NULL);
+    while(i <= words)
+    {}
+    return (dst);
 }
-
