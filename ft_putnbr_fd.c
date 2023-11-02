@@ -5,7 +5,13 @@ void ft_putnbr_fd(int n, int fd)
     long long num;
 
     num = n;
-    if (num < 0)
+    if (num == INT_MIN)
+    {
+        ft_putchar_fd('-', fd);
+        ft_putchar_fd('2', fd);
+        ft_putnbr_fd(147483648, fd);
+    }
+    else if (num < 0)
     {
         ft_putchar_fd('-', fd);
         ft_putnbr_fd(num * -1, fd);

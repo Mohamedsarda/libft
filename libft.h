@@ -17,6 +17,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <limits.h>
 
 // Part 1
 int		ft_isalnum(int c);
