@@ -12,7 +12,7 @@
 
 #include "libc.h"
 
-static int	ft_num_len(int n)
+static int	ft_num_len(long n)
 {
 	long	num;
 	int		i;
@@ -39,6 +39,8 @@ char	*ft_itoa(int n)
 
 	n_len = ft_num_len(n);
 	str = malloc(n_len + 1);
+	if(!str)
+		return (NULL);
 	str[n_len--] = '\0';
 	if (n == 0)
 		str[0] = '0';

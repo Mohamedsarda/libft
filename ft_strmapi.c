@@ -33,3 +33,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	dst[i] = '\0';
 	return (dst);
 }
+
+
+
+

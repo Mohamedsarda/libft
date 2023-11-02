@@ -19,12 +19,12 @@ int	ft_atoi(const char *str)
 
 	i = 0;
 	num = 0;
-	is_p = 0;
+	is_p = 1;
 	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-')
 	{
-		is_p = -1;
+		is_p *= -1;
 		i++;
 	}
 	else if (str[i] == '+')
