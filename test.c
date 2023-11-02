@@ -2,5 +2,5 @@
 
 int main()
 {
-	ft_putnbr_fd(-2147483, 1);
+	printf("%s \n",ft_strnstr("med sarda", "ba", 9));
 }
