@@ -36,24 +36,25 @@ char	*ft_itoa(int n)
 {
 	int		n_len;
 	char	*str;
+	long	num;
 
+	num = n;
 	n_len = ft_num_len(n);
 	str = (char *)malloc((n_len + 1) * sizeof(char));
 	if(!str)
 		return (NULL);
 	str[n_len--] = '\0';
-	if (n == 0)
+	if (num == 0)
 		str[0] = '0';
-	if (n < 0)
+	if (num < 0)
 	{
 		str[0] = '-';
-		n *= -1;
-		n_len--;
+		num *= -1;
 	}
-	while (n > 0 && n_len >= 0)
+	while (num > 0 && n_len >= 0)
 	{
-		str[n_len] = '0' + (n % 10);
-		n /= 10;
+		str[n_len] = '0' + (num % 10);
+		num /= 10;
 		n_len--;
 	}
 	return (str);
