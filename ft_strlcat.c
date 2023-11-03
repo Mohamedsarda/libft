@@ -21,7 +21,7 @@ size_t    ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsiz
   size_t s_len = 0;
 
   s_len = ft_strlen(src);
-  if(!dst || dstsize == 0)
+  if(dstsize == 0)
     return (s_len);
   d_len = ft_strlen(dst);
   if (dstsize <= d_len)
@@ -33,18 +33,6 @@ size_t    ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsiz
     d_len++;
     i++;
   }
-    // if(d_len < dstsize)
   dst[d_len] = '\0';
   return (s_len + c_d_len);
 }
-
-// int main()
-// {
-// 	char d[] = "pqrstuvwxyz";
-// 	char *s = "abcd";
-
-// 	// printf("%zu \n", ft_strlcat(d, s, 20));
-// 	printf("%zu \n", strlcat(d, s, 20));
-//   printf("s : %s \n", s);
-//   printf("d : %s \n", d);
-// }
