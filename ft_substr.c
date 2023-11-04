@@ -23,12 +23,16 @@ char    *ft_substr(char const *s, unsigned int start, size_t len)
         return (NULL);
     i = 0;
 	s_len = ft_strlen(s);
-    while (s[start] && (i < len))
+    if (len <= s_len)
     {
-        dst[i] = s[start];
-        i++;
-        start++;
+        while (s[start] && (i < len))
+        {
+            dst[i] = s[start];
+            i++;
+            start++;
+        }
+        dst[i] = '\0';
+        return (dst);
     }
-    dst[i] = '\0';
-    return (dst);
+    return (NULL);
 }

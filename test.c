@@ -1,10 +1,14 @@
 #include "libft.h"
 #include <strings.h>
 
-int main()
-{
-    char dst[] = "01234, World!";
-    char *str = "Hello, World!";
-	// // printf("mine  %s \n",ft_memmove(dst, str, 2));
-	printf("-->   %s \n",memmove(dst, str, 2));
+int main() {
+  	char *s = "split  ||this|for|me|||| |!|";
+    int i = 0;
+    char **result = ft_split(s, '|');
+	while(result[i] != NULL)
+	{
+		printf("%s \n", result[i]);
+		i++;
+	}
+  return 0;
 }

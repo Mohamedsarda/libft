@@ -44,6 +44,20 @@ static int	ft_word_len(char const *str, char c)
 	return (i);
 }
 
+static void	*ft_free(char **arr, int i)
+{
+	int	j;
+
+	j = 0;
+	while(j < i)
+	{
+		free(arr[j]);
+		j++;
+	}
+	free(arr);
+	return (NULL);
+}
+
 static char	**ft_putword(char const *str, char c, int words, char **dst)
 {
 	int	i;
@@ -59,13 +73,14 @@ static char	**ft_putword(char const *str, char c, int words, char **dst)
 		len = ft_word_len(str, c);
 		dst[i] = (char *)malloc(len * sizeof(char) + 1);
 		if (!dst[i])
-			return (NULL);
+			return (ft_free(dst, i));
 		j = 0;
 		while (j < len)
 			dst[i][j++] = *str++;
 		dst[i][j] = '\0';
 		i++;
 	}
+	dst[i] = NULL;
 	return (dst);
 }
 
@@ -75,7 +90,7 @@ char	**ft_split(char const *s, char c)
 	int		words;
 
 	words = ft_words_counter(s, c);
-	dst = (char **)malloc(words * sizeof(char *) + 1);
+	dst = (char **)malloc((words  + 1) * sizeof(char *));
 	if (!dst)
 		return (NULL);
 	dst = ft_putword(s, c, words, dst);
