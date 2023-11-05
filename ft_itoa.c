@@ -6,7 +6,7 @@
 /*   By: medsarda <medsarda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 11:35:44 by msarda            #+#    #+#             */
-/*   Updated: 2023/11/02 18:43:47 by medsarda         ###   ########.fr       */
+/*   Updated: 2023/11/05 17:11:23 by msarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_itoa(int n)
 	num = n;
 	n_len = ft_num_len(n);
 	str = (char *)malloc((n_len + 1) * sizeof(char));
-	if(!str)
+	if (!str)
 		return (NULL);
 	str[n_len--] = '\0';
 	if (num == 0)

@@ -6,11 +6,12 @@
 /*   By: medsarda <medsarda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:57:21 by msarda            #+#    #+#             */
-/*   Updated: 2023/11/02 17:50:45 by medsarda         ###   ########.fr       */
+/*   Updated: 2023/11/05 17:08:58 by msarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	unsigned char	*d;

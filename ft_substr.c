@@ -6,13 +6,13 @@
 /*   By: medsarda <medsarda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:39:40 by msarda            #+#    #+#             */
-/*   Updated: 2023/11/04 17:06:19 by medsarda         ###   ########.fr       */
+/*   Updated: 2023/11/05 16:56:15 by msarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t			i;
 	char			*dst;

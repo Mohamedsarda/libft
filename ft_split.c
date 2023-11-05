@@ -6,7 +6,7 @@
 /*   By: msarda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:14:44 by msarda            #+#    #+#             */
-/*   Updated: 2023/11/02 10:23:38 by msarda           ###   ########.fr       */
+/*   Updated: 2023/11/05 17:10:18 by msarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -49,7 +49,7 @@ static void	*ft_free(char **arr, int i)
 	int	j;
 
 	j = 0;
-	while(j < i)
+	while (j < i)
 	{
 		free(arr[j]);
 		j++;
@@ -90,7 +90,7 @@ char	**ft_split(char const *s, char c)
 	int		words;
 
 	words = ft_words_counter(s, c);
-	dst = (char **)malloc((words  + 1) * sizeof(char *));
+	dst = (char **)malloc((words + 1) * sizeof(char *));
 	if (!dst)
 		return (NULL);
 	dst = ft_putword(s, c, words, dst);
