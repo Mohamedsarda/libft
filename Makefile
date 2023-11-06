@@ -10,7 +10,7 @@ ft_isascii.c	ft_memmove.c	ft_strlcat.c	ft_strrchr.c	ft_strjoin.c\
 ft_strtrim.c ft_split.c ft_itoa.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c\
 ft_putnbr_fd.c ft_strmapi.c ft_striteri.c ft_substr.c ft_memcmp.c\
 
-BSRC = ft_lstnew.c\
+BSRC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c\
 
 OBJS = $(SRCS:.c=.o)
 OBJSB = $(BSRC:.c=.o)
