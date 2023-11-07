@@ -14,21 +14,15 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long long	num;
+	long	num;
 
 	num = n;
-	if (num == INT_MIN)
+	if (num < 0)
 	{
 		ft_putchar_fd('-', fd);
-		ft_putchar_fd('2', fd);
-		ft_putnbr_fd(147483648, fd);
+		num *= -1;
 	}
-	else if (num < 0)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(num * -1, fd);
-	}
-	else if (num > 9)
+	if (num > 9)
 	{
 		ft_putnbr_fd(num / 10, fd);
 		ft_putnbr_fd(num % 10, fd);

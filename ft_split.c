@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-
+//counting how many words in a strings based on the spliter "char c"
 static int	ft_words_counter(char const *str, char c)
 {
 	int	i;
@@ -34,6 +34,7 @@ static int	ft_words_counter(char const *str, char c)
 	return (words);
 }
 
+//getting the lenght of a single word
 static int	ft_word_len(char const *str, char c)
 {
 	int	i;
@@ -44,6 +45,7 @@ static int	ft_word_len(char const *str, char c)
 	return (i);
 }
 
+//freeing the allocation if it fails from 0 -> i
 static void	*ft_free(char **arr, int i)
 {
 	int	j;
@@ -57,6 +59,7 @@ static void	*ft_free(char **arr, int i)
 	free(arr);
 	return (NULL);
 }
+//puting word into the **arr
 
 static char	**ft_putword(char const *str, char c, int words, char **dst)
 {
