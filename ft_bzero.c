@@ -11,28 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <strings.h>
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
-	char	*str;
-
-	str = (char *)s;
-	i = 0;
-	while (i < n)
-	{
-		str[i] = 0;
-		i++;
-	}
-}
-
-int main()
-{
-	void *s = "test";
-	void *d = "test";
-	ft_bzero(s, ft_strlen(s));
-	// bzero(d, ft_strlen(d));
-	printf("%s", s);
-	printf("%s", d);
+	ft_memset(s, 0, n);
 }
