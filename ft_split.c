@@ -92,6 +92,8 @@ char	**ft_split(char const *s, char c)
 	char	**dst;
 	int		words;
 
+	if (!s)
+		return (NULL);
 	words = ft_words_counter(s, c);
 	dst = (char **)malloc((words + 1) * sizeof(char *));
 	if (!dst)
