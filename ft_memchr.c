@@ -21,6 +21,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	i = 0;
 	str = (unsigned char *)s;
 	var = (unsigned char)c;
+	if (!n)
+		return (NULL);
 	while (i < n)
 	{
 		if (str[i] == var)
