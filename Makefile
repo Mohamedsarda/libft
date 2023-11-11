@@ -31,7 +31,7 @@ ${NAME}: ${OBJS}
 bonus: ${NAME} ${OBJSB}
 	${LIBC} ${NAME} ${OBJSB}
 
-%.o: %.c
+%.o: %.c libft.h
 	${CC} ${CFLAGS} -c $< -o $@
 
 clean:
