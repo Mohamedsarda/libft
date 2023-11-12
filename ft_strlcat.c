@@ -6,7 +6,7 @@
 /*   By: medsarda <medsarda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:53:53 by msarda            #+#    #+#             */
-/*   Updated: 2023/11/05 17:06:19 by msarda           ###   ########.fr       */
+/*   Updated: 2023/11/12 12:10:41 by msarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		return (dstsize + s_len);
 	i = 0;
 	while (src[i] && j + 1 < dstsize)
-		dst[j++]= src[i++];
+		dst[j++] = src[i++];
 	dst[j] = '\0';
 	return (d_len + s_len);
 }
