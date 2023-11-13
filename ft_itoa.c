@@ -12,12 +12,10 @@
 
 #include "libc.h"
 
-static int	ft_num_len(long n)
+static int	ft_num_len(long num)
 {
-	long	num;
 	int		i;
 
-	num = n;
 	i = 0;
 	if (num <= 0)
 	{
